@@ -2,10 +2,13 @@
 apr-util-mysql-1.5.2-6.el7.x86_64
 [root@localhost ~]# rpm -e --nodeps apr-util-mysql-1.5* //卸载msyql的rpm包
 [root@localhost ~]# rpm -qa |grep mysql //再次确认mysql的rpm是否卸载
-[root@localhost ~]# 
 [root@localhost ~]# wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm //下载并安装MySQL官方的 Yum Repository
 [root@localhost ~]# yum -y install mysql57-community-release-el7-10.noarch.rpm
 [root@localhost ~]# yum -y install mysql-community-server
+[root@localhost ~]# chown mysql:mysql -R /var/lib/mysql
+[root@localhost ~]# mysqld --initialize
+[root@localhost ~]# mysqladmin --version
+mysqladmin  Ver 8.42 Distrib 5.7.27, for Linux on x86_64
 [root@localhost ~]# systemctl start  mysqld.service
 [root@localhost ~]# systemctl status mysqld.service
 ● mysqld.service - MySQL Server
