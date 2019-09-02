@@ -1,1 +1,144 @@
+[root@localhost ~]# ps -ef | grep mysqld //检查MySQL服务器是否启动
+mysql     54441      1  0 04:48 ?        00:00:01 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
+root      56743    946  0 05:32 pts/0    00:00:00 grep --color=auto mysqld
+[root@localhost ~]# mysql -h localhost -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 5.7.27 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select version(),current_date;
++-----------+--------------+
+| version() | current_date |
++-----------+--------------+
+| 5.7.27    | 2019-09-01   |
++-----------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select sin(pi()/4),(4+1)*5;
++--------------------+---------+
+| sin(pi()/4)        | (4+1)*5 |
++--------------------+---------+
+| 0.7071067811865475 |      25 |
++--------------------+---------+
+1 row in set (0.00 sec)
+
+mysql> select version();select now();
++-----------+
+| version() |
++-----------+
+| 5.7.27    |
++-----------+
+1 row in set (0.00 sec)
+
++---------------------+
+| now()               |
++---------------------+
+| 2019-09-01 06:07:02 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select 
+    -> user()
+    -> ,
+    -> current_date;
++--------+--------------+
+| user() | current_date |
++--------+--------------+
+| root@  | 2019-09-01   |
++--------+--------------+
+1 row in set (0.00 sec)
+
+
+mysql> select 
+    -> user()
+    -> \c
+
+提示	      含义
+mysql>	    准备好进行新查询
+->	        等待下一行的多行查询
+'>	        等待下一行，等待以单引号（'）开头的字符串的完成
+">	        等待下一行，等待以双引号开头的字符串的完成（"）
+`>	        等待下一行，等待以反引号（`）开头的标识符的完成
+/*>	        等待下一行，等待以＃开头的评论完成 /*
+
+mysql> create database kings; 
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| kings              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use kings;
+Database changed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> \q
+Bye
 
